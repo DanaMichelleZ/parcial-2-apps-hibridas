@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const conectarDB = require('./config/db');
 const vocaloidRoutes = require('./routes/vocaloidRoutes');
 const authRoutes = require('./routes/authRoutes');
@@ -9,7 +10,7 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-
+app.use(cors());
 app.use(express.json());
 
 

@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "670da29d78146896f0ba9bb7"
+  },
+  "nombre": "Yash Actor",
+  "email": "kgf@chapter1&2.com",
+  "password": "$2a$10$SsxMFJ8w9jL3GilTDaH50uFbjLwtsU3XzLEihbHDSY5/.0SeQyOtu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670da47378146896f0ba9bbc"
+  },
+  "nombre": "usuario",
+  "email": "usuario@example.com",
+  "password": "$2a$10$Ra8m6j3y4HyGzJqKUu38t.Y/iPM4uJSILA.Dwh2CWu45toV9yY9p.",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670da4febb4b75b571e75bc9"
+  },
+  "nombre": "usuario2",
+  "email": "usuario2@example.com",
+  "password": "$2a$10$OZc6ob21RRaNwbaWwAnkUOz4eFBiL6OAsDb1FLu.BM364W7V7An6i",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec1014e4cf6ae7da7c42b"
+  },
+  "nombre": "usuarioTest",
+  "email": "usuariotest@example.com",
+  "password": "$2a$10$WeLGNWsGzKD6zuUbDnPTj.sCN46aQBFaKJuGiGoOOZ1VASlVIwkR6",
+  "__v": 0
+}]

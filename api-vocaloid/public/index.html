@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de Vocaloid</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>API VOCALOID</h1>
+        <ul>
+            <li><a href="/vista-api.html">VER VOCALOIDS</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <h2>SOBRE LA API</h2>
+        <section>
+            <p>Esta API proporciona información sobre diferentes Vocaloids, incluyendo sus atributos y características. A través de esta API, puedes gestionar los datos de Vocaloids y realizar diversas operaciones como crear, obtener, actualizar y eliminar registros.</p>
+
+            <img src="images/tamago-miku.png" alt="Tamago Miku" style="max-width: 100%; height: auto; margin-top: 20px; border-radius: 10px;">
+        </section>
+
+        <section><h3>RUTAS DISPONIBLES</h3>
+            <ul>
+                <li><strong>GET <a href="/vocaloids">/vocaloids</a></strong> - Obtener una lista de todos los Vocaloids.</li>
+                <li><strong>GET /vocaloids/:id</strong> - Obtener información de un Vocaloid específico por su ID.</li>
+                <li><strong>POST /vocaloids</strong> - Crear un nuevo Vocaloid.</li>
+                <li><strong>PUT /vocaloids/:id</strong> - Actualizar la información de un Vocaloid existente.</li>
+                <li><strong>DELETE /vocaloids/:id</strong> - Eliminar un Vocaloid existente.</li>
+            </ul>
+        </section>
+
+        <section><h3>AUTENTICACIÓN</h3>
+            <p>Las rutas de la API requieren autenticación a través de JSON Web Tokens (JWT) para poder ejecutarlas, garantiza la seguridad de las operaciones. Se debe incluir un token válido en los encabezados de las solicitudes POST, PUT y DELETE.</p>
+        </section>
+        
+        <section><h3>VALIDACIONES</h3>
+            <p>La API incluye validaciones para asegurar que los datos enviados cumplen con los requisitos establecidos para cada Vocaloid, tales como la existencia de campos obligatorios como el nombre, género y desarrollador, así como un formato de fecha válido.</p>
+        </section>
+
+        <h2>¿QUÉ ES VOCALOID?</h2>
+        <section id="introduccion-vocaloid">
+            <p><strong>Vocaloid</strong> es un software de síntesis de voz creado por <strong>Yamaha Corporation</strong> que permite generar voces humanas a partir de texto. Desarrollado inicialmente en 2003, ha permitido a músicos y productores componer canciones sin necesidad de cantantes reales. Vocaloid utiliza bancos de voz pregrabados, llamados "voicebanks", para transformar texto en una interpretación vocal realista.</p>
+        </section>
+
+        <section> 
+            <h3>¿CÓMO FUNCIONA VOCALOID?</h3>
+            <p>El software genera voces mediante un proceso de síntesis de voz por concatenación, donde fragmentos de sonidos vocales son ensamblados para generar la pronunciación de palabras completas. Cada <strong>voicebank</strong> está asociado a un personaje digital, como <em>Hatsune Miku</em> o <em>Megurine Luka</em>, lo que le da identidad al sonido.</p>
+            <p>Los usuarios pueden controlar la tonalidad, el timbre, la velocidad y la entonación de la voz, lo que permite un alto nivel de personalización para crear composiciones únicas.</p>
+            <a href="https://www.youtube.com/watch?v=kBiQYw3Y_Ug" target="_blank">
+                <img src="images/previewvideo.jpg" alt="Preview de un videowo" style="max-width: 100%; height: auto; margin-top: 20px;">
+            </a>
+            
+        </section>
+    </main>
+
+    <footer>
+        <p>Nombre: Dana Michelle Zambelli</p>
+        <p>Materia: Aplicaciones Híbridas</p>
+        <p>Docente: Camila Marcos Galbán</p>
+        <p>Comisión: W2044</p>
+        <p>Parcial 1</p>
+    </footer>
+</body>
+</html>

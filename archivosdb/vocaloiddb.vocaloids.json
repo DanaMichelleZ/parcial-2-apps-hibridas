@@ -1,0 +1,342 @@
+[{
+  "_id": {
+    "$oid": "670ec569795952060ee414ac"
+  },
+  "nombre": "Hatsune Miku",
+  "genero": "Femenino",
+  "desarrollador": "Crypton Future Media",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2007-08-31T00:00:00.000Z"
+  },
+  "versionMotor": "Miku V4X",
+  "imagenPerfil": "/images/mikuv4xicon.jpg",
+  "imagenCuerpoCompleto": "/images/mikuv4xcompleta.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec57a795952060ee414ae"
+  },
+  "nombre": "Kagamine Len",
+  "genero": "Masculino",
+  "desarrollador": "Crypton Future Media",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2007-12-27T00:00:00.000Z"
+  },
+  "versionMotor": "Len V2",
+  "imagenPerfil": "/images/lenv2icon.jpg",
+  "imagenCuerpoCompleto": "/images/lenv2completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec59b795952060ee414b0"
+  },
+  "nombre": "Megurine Luka",
+  "genero": "Femenino",
+  "desarrollador": "Crypton Future Media",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2009-01-30T00:00:00.000Z"
+  },
+  "versionMotor": "Luka V4X",
+  "imagenPerfil": "/images/lukav4xicon.jpg",
+  "imagenCuerpoCompleto": "/images/lukav4xcompleta.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec5ba795952060ee414b3"
+  },
+  "nombre": "MEIKO",
+  "genero": "Femenino",
+  "desarrollador": "Crypton Future Media",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2004-11-05T00:00:00.000Z"
+  },
+  "versionMotor": "MEIKO V3",
+  "imagenPerfil": "/images/meikov3icon.jpg",
+  "imagenCuerpoCompleto": "/images/meikov3completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec5df795952060ee414b6"
+  },
+  "nombre": "KAITO",
+  "genero": "Masculino",
+  "desarrollador": "Crypton Future Media",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2006-02-17T00:00:00.000Z"
+  },
+  "versionMotor": "KAITO V3",
+  "imagenPerfil": "/images/kaitov3icon.jpg",
+  "imagenCuerpoCompleto": "/images/kaitov3completo.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec5e5795952060ee414b8"
+  },
+  "nombre": "GUMI",
+  "genero": "Femenino",
+  "desarrollador": "Internet Co., Ltd.",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2009-06-26T00:00:00.000Z"
+  },
+  "versionMotor": "GUMI V4",
+  "imagenPerfil": "/images/gumiv4icon.jpg",
+  "imagenCuerpoCompleto": "/images/gumiv4completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec5ee795952060ee414ba"
+  },
+  "nombre": "Fukase",
+  "genero": "Masculino",
+  "desarrollador": "Yamaha",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2016-01-28T00:00:00.000Z"
+  },
+  "versionMotor": "Fukase V4",
+  "imagenPerfil": "/images/fukasev4icon.jpg",
+  "imagenCuerpoCompleto": "/images/fukasev4completo.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec642afcd976bb9ceeacc"
+  },
+  "nombre": "IA",
+  "genero": "Femenino",
+  "desarrollador": "1st PLACE Co., Ltd.",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2012-01-27T00:00:00.000Z"
+  },
+  "versionMotor": "IA V3",
+  "imagenPerfil": "/images/iav3icon.jpg",
+  "imagenCuerpoCompleto": "/images/iav3completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec64aafcd976bb9ceeacf"
+  },
+  "nombre": "Yuzuki Yukari",
+  "genero": "Femenino",
+  "desarrollador": "VOCALOMAKETS",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2011-12-22T00:00:00.000Z"
+  },
+  "versionMotor": "Yukari V4",
+  "imagenPerfil": "/images/yukariv4icon.jpg",
+  "imagenCuerpoCompleto": "/images/yukariv4completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec66dafcd976bb9ceead2"
+  },
+  "nombre": "VY1",
+  "genero": "Femenino",
+  "desarrollador": "Yamaha",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2010-09-01T00:00:00.000Z"
+  },
+  "versionMotor": "VY1 V3",
+  "imagenPerfil": "/images/vy1icon.jpg",
+  "imagenCuerpoCompleto": "/images/vy1completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec672afcd976bb9ceead4"
+  },
+  "nombre": "CUL",
+  "genero": "Femenino",
+  "desarrollador": "Internet Co., Ltd.",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2011-12-22T00:00:00.000Z"
+  },
+  "versionMotor": "CUL V3",
+  "imagenPerfil": "/images/culv3icon.jpg",
+  "imagenCuerpoCompleto": "/images/culv3completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec675afcd976bb9ceead6"
+  },
+  "nombre": "Luo Tianyi",
+  "genero": "Femenino",
+  "desarrollador": "Shanghai Henian",
+  "idioma": [
+    "Chino"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2012-07-12T00:00:00.000Z"
+  },
+  "versionMotor": "Tianyi V5",
+  "imagenPerfil": "/images/luov5icon.jpg",
+  "imagenCuerpoCompleto": "/images/luov5completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec67cafcd976bb9ceead8"
+  },
+  "nombre": "ZOLA Project",
+  "genero": "Masculino",
+  "desarrollador": "Yamaha",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2013-06-20T00:00:00.000Z"
+  },
+  "versionMotor": "ZOLA V3",
+  "imagenPerfil": "/images/zolav3icon.jpg",
+  "imagenCuerpoCompleto": "/images/zolav3completo.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec697e812f2260b1e5623"
+  },
+  "nombre": "Kizuna Akari",
+  "genero": "Femenino",
+  "desarrollador": "VOCALOMAKETS",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2018-04-22T00:00:00.000Z"
+  },
+  "versionMotor": "Akari V4",
+  "imagenPerfil": "/images/kizunav4icon.jpg",
+  "imagenCuerpoCompleto": "/images/kizunav4completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec6a8e812f2260b1e5625"
+  },
+  "nombre": "Maika",
+  "genero": "Femenino",
+  "desarrollador": "Voctro Labs",
+  "idioma": [
+    "Español"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2013-12-18T00:00:00.000Z"
+  },
+  "versionMotor": "Maika V3",
+  "imagenPerfil": "/images/maikav3icon.jpg",
+  "imagenCuerpoCompleto": "/images/maikav3completa.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec6aee812f2260b1e5627"
+  },
+  "nombre": "Oliver",
+  "genero": "Masculino",
+  "desarrollador": "PowerFX",
+  "idioma": [
+    "Inglés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2011-12-21T00:00:00.000Z"
+  },
+  "versionMotor": "Oliver V3",
+  "imagenPerfil": "/images/oliverv3icon.jpg",
+  "imagenCuerpoCompleto": "/images/oliverv3completo.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec6b2e812f2260b1e5629"
+  },
+  "nombre": "Miku V2",
+  "genero": "Femenino",
+  "desarrollador": "Crypton Future Media",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2011-04-30T00:00:00.000Z"
+  },
+  "versionMotor": "Miku V2",
+  "imagenPerfil": "/images/hatsunemikuicon.jpg",
+  "imagenCuerpoCompleto": "/images/hatsunemikucompleta.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec6b9e812f2260b1e562b"
+  },
+  "nombre": "GUMI AI Megpoid",
+  "genero": "Femenino",
+  "desarrollador": "Internet Co., Ltd.",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2023-10-13T00:00:00.000Z"
+  },
+  "versionMotor": "AI V6",
+  "imagenPerfil": "/images/gumisynthicon.jpg",
+  "imagenCuerpoCompleto": "/images/gumisynthcompleta.jpg",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670ec6cce812f2260b1e562d"
+  },
+  "nombre": "Kagamine Rin",
+  "genero": "Femenino",
+  "desarrollador": "Crypton Future Media",
+  "idioma": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2007-12-27T00:00:00.000Z"
+  },
+  "versionMotor": "Rin V2",
+  "imagenPerfil": "/images/rinv2icon.jpg",
+  "imagenCuerpoCompleto": "/images/rinv2completa.jpg",
+  "__v": 0
+}]

@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+}
+
+ h1 {
+    color: white;
+    margin: 0;
+    font-size: 2em;
+}
+
+
+h2 {
+    color: white;
+    background-color: #ff018d;
+    padding: 2px;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+h3 {
+    color: white;
+    background-color: #11c8d6;
+    padding: 2px;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+header {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+header a {
+    color: #ff018d;
+    text-decoration: none;
+    font-weight: 900;
+    transition: color 0.3s ease;
+    
+}
+header a:hover {
+    color: #11c8d6;
+}
+header p {
+    margin: 0.5em 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    font-weight: 800;
+    color: #ff018d;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+ul li a:hover {
+    color: #11c8d6;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+}
+
+section {
+    background-color: #ffffff;
+    
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 990px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(to right, #ff018d, #11c8d6) 1;
+}
+
+section p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+section ul {
+    margin-top: 10px;
+}
+
+section ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* vista-api.html */
+#vocaloid-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+    color: white;
+}
+
+.vocaloid-item {
+    width: 30%;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-image: linear-gradient(to right, #ff018d, #11c8d6) 1;
+}
+
+.vocaloid-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.vocaloid-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.vocaloid-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

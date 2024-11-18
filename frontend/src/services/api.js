@@ -7,3 +7,12 @@ export async function getVocaloids() {
   }
   return response.json();
 }
+
+export async function getVocaloidById(id) {
+    const response = await fetch(`${API_URL}/vocaloids/${id}`);
+    if (!response.ok) {
+      throw new Error("Error al obtener el Vocaloid");
+    }
+    return response.json();
+  }
+  

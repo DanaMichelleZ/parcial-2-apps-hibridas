@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import VocaloidList from "./pages/VocaloidList";
 import VocaloidDetail from "./pages/VocaloidDetail";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -14,8 +15,22 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/vocaloids" element={<VocaloidList />} />
-          <Route path="/vocaloids/:id" element={<VocaloidDetail />} />
+          <Route
+            path="/vocaloids"
+            element={
+              <ProtectedRoute>
+                <VocaloidList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/vocaloids/:id"
+            element={
+              <ProtectedRoute>
+                <VocaloidDetail />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </main>
       <footer>

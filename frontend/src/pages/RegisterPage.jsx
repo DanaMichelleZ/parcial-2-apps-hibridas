@@ -2,28 +2,34 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
-  const [name, setName] = useState("");
+  const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
+
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ nombre, email, password }),
       });
 
       if (!response.ok) {
-        throw new Error("Error al registrar el usuario.");
+        const data = await response.json();
+        throw new Error(data.error || "Error al registrar el usuario.");
       }
 
-      navigate("/login");
+      setSuccess("Usuario registrado exitosamente. Redirigiendo al login...");
+      setTimeout(() => navigate("/login"), 3000);
     } catch (error) {
       setError(error.message);
     }
@@ -34,15 +40,15 @@ export default function RegisterPage() {
       <h2>Registro</h2>
       <form onSubmit={handleRegister}>
         <div className="mb-3">
-          <label htmlFor="name" className="form-label">
+          <label htmlFor="nombre" className="form-label">
             Nombre
           </label>
           <input
             type="text"
             className="form-control"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            id="nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
             required
           />
         </div>
@@ -73,6 +79,7 @@ export default function RegisterPage() {
           />
         </div>
         {error && <div className="alert alert-danger">{error}</div>}
+        {success && <div className="alert alert-success">{success}</div>}
         <button type="submit" className="btn btn-primary">
           Registrarse
         </button>

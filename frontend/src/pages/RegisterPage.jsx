@@ -1,30 +1,29 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function LoginPage() {
+export default function RegisterPage() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password }),
       });
 
       if (!response.ok) {
-        throw new Error("Credenciales inválidas.");
+        throw new Error("Error al registrar el usuario.");
       }
 
-      const data = await response.json();
-      localStorage.setItem("token", data.token);
-      navigate("/vocaloids");
+      navigate("/login");
     } catch (error) {
       setError(error.message);
     }
@@ -32,8 +31,21 @@ export default function LoginPage() {
 
   return (
     <div className="container mt-5">
-      <h2>Iniciar Sesión</h2>
-      <form onSubmit={handleLogin}>
+      <h2>Registro</h2>
+      <form onSubmit={handleRegister}>
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">
+            Nombre
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Correo Electrónico
@@ -62,12 +74,9 @@ export default function LoginPage() {
         </div>
         {error && <div className="alert alert-danger">{error}</div>}
         <button type="submit" className="btn btn-primary">
-          Iniciar Sesión
+          Registrarse
         </button>
       </form>
-      <p className="mt-3">
-        ¿No tienes cuenta? <Link to="/register">Regístrate</Link>
-      </p>
     </div>
   );
 }

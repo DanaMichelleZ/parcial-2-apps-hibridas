@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const isAuthenticated = !!localStorage.getItem("token");
 
   const handleLogout = () => {
     console.log("Cerrando sesión...");
+    localStorage.removeItem("token");
     navigate("/login");
   };
 
@@ -33,11 +35,13 @@ export default function Navbar() {
                 Lista de Vocaloids
               </Link>
             </li>
-            <li className="nav-item">
-              <button className="btn btn-danger nav-link" onClick={handleLogout}>
-                Cerrar Sesión
-              </button>
-            </li>
+            {isAuthenticated && (
+              <li className="nav-item">
+                <button className="btn btn-danger nav-link" onClick={handleLogout}>
+                  Cerrar Sesión
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

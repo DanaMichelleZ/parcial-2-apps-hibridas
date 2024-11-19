@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import VocaloidList from "./pages/VocaloidList";
@@ -7,9 +9,7 @@ import VocaloidDetail from "./pages/VocaloidDetail";
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <h1>Proyecto Vocaloid uwu</h1>
-      </header>
+      <Navbar />
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />

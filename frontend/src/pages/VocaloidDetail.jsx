@@ -27,14 +27,16 @@ export default function VocaloidDetail() {
       <h2>Detalles de {vocaloid.nombre}</h2>
       <p>Género: {vocaloid.genero}</p>
       <p>Desarrollador: {vocaloid.desarrollador}</p>
-      <p>Idiomas: {vocaloid.idioma.join(", ")}</p>
+      <p>Idiomas: {vocaloid.idiomas.join(", ")}</p>
       <p>
         Fecha de lanzamiento:{" "}
         {new Date(vocaloid.fechaLanzamiento).toLocaleDateString()}
       </p>
-      <img src={`${import.meta.env.VITE_API_URL}${vocaloid.imagenPerfil}`}
-      alt={vocaloid.nombre} />
-
+      <p>Versión del Motor: {vocaloid.versionMotor}</p>
+      <img
+        src={`${import.meta.env.VITE_API_URL}${vocaloid.imagenPerfil}`}
+        alt={vocaloid.nombre}
+      />
       <button onClick={() => navigate(-1)}>Volver Atrás</button>
     </div>
   );

@@ -24,7 +24,8 @@ export default function LoginPage() {
 
       const data = await response.json();
       localStorage.setItem("token", data.token);
-      navigate("/vocaloids");
+
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }

@@ -1,0 +1,45 @@
+[
+    {
+      "nombreMotor": "VOCALOID",
+      "nombreProducto": "VOCALOID",
+      "idiomas": ["Inglés", "Japonés"],
+      "fechaLanzamiento": "2004-03-03"
+    },
+    {
+      "nombreMotor": "VOCALOID2",
+      "nombreProducto": "VOCALOID2",
+      "idiomas": ["Inglés", "Japonés"],
+      "fechaLanzamiento": "2007-06-29"
+    },
+    {
+      "nombreMotor": "VOCALOID3",
+      "nombreProducto": "VOCALOID3 Editor, VOCALOID3 Editor Second Edition",
+      "idiomas": ["Japonés", "Coreano", "Inglés", "Español", "Chino"],
+      "fechaLanzamiento": "2011-10-21"
+    },
+    {
+      "nombreMotor": "VOCALOID4",
+      "nombreProducto": "VOCALOID4 Editor, VOCALOID4 Editor for Cubase",
+      "idiomas": ["Japonés", "Coreano", "Inglés", "Chino"],
+      "fechaLanzamiento": "2014-12-17"
+    },
+    {
+      "nombreMotor": "VOCALOID5",
+      "nombreProducto": "VOCALOID5 Editor, VOCALOID4.5 Editor for Cubase",
+      "idiomas": ["Inglés", "Japonés"],
+      "fechaLanzamiento": "2018-07-18"
+    },
+    {
+      "nombreMotor": "VOCALOID6",
+      "nombreProducto": "VOCALOID6 EDITOR",
+      "idiomas": ["Inglés", "Japonés"],
+      "fechaLanzamiento": "2023-10-13"
+    },
+    {
+      "nombreMotor": "Mobile VOCALOID",
+      "nombreProducto": "Mobile VOCALOID Editor",
+      "idiomas": ["Japonés", "Inglés"],
+      "fechaLanzamiento": "2015-04-03"
+    }
+  ]
+  

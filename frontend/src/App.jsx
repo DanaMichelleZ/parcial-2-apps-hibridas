@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import VocaloidList from "./pages/VocaloidList";
 import VocaloidDetail from "./pages/VocaloidDetail";
+import MotorList from "./pages/MotorList";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
@@ -30,6 +31,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <VocaloidDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/motores" 
+            element={
+              <ProtectedRoute>
+                <MotorList />
               </ProtectedRoute>
             }
           />

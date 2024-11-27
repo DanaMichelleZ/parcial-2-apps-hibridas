@@ -29,27 +29,34 @@ const crearVocaloid = async (req, res) => {
 };
 
 const obtenerVocaloids = async (req, res) => {
-    try {
-      const vocaloids = await Vocaloid.find()
-        .populate('motorId', 'nombreMotor nombreProducto idiomas fechaLanzamiento');
-  
-      if (!vocaloids) {
-        return res.status(404).json({ error: 'No se encontraron Vocaloids.' });
-      }
-  
-      res.json(vocaloids);
-    } catch (error) {
-      console.error('Error al obtener los Vocaloids:', error.message);
-      res.status(500).json({ error: 'Error interno del servidor.' });
-    }
-  };
-  
+    const { nombre, sort, page = 1, limit = 10 } = req.query;
+    let filtro = {};
+    let orden = {}; 
 
-  
+    if (nombre) {
+        filtro.nombre = new RegExp(nombre, 'i');
+    }
+
+    if (sort) {
+        orden[sort] = 1;
+    }
+
+    try {
+        const vocaloids = await Vocaloid.find(filtro)
+            .populate('motorId', 'nombreMotor nombreProducto idiomas fechaLanzamiento')
+            .sort(orden)
+            .skip((page - 1) * limit)
+            .limit(Number(limit));
+
+        res.json(vocaloids);
+    } catch (error) {
+        console.error('Error al obtener los Vocaloids:', error);
+        res.status(500).json({ error: 'Error interno del servidor.' });
+    }
+};
 
 const obtenerVocaloidPorId = async (req, res) => {
     try {
-        console.log('ID recibido:', req.params.id);
         const vocaloid = await Vocaloid.findById(req.params.id)
             .populate({
                 path: 'motorId',

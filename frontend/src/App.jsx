@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/motores" element={<MotorList />} />
           <Route
             path="/vocaloids"
             element={
@@ -31,14 +32,6 @@ function App() {
             element={
               <ProtectedRoute>
                 <VocaloidDetail />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/motores" 
-            element={
-              <ProtectedRoute>
-                <MotorList />
               </ProtectedRoute>
             }
           />

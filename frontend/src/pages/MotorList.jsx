@@ -5,20 +5,35 @@ export default function MotorList() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/motores`)
-      .then((res) => res.json())
-      .then(setMotores)
-      .catch((err) => setError(err.message));
+    const fetchMotores = async () => {
+      try {
+        console.log("Fetching motores from:", import.meta.env.VITE_API_URL);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/motores`);
+        if (!res.ok) {
+          throw new Error(`Error al obtener los motores: ${res.statusText}`);
+        }
+        const data = await res.json();
+        setMotores(data);
+      } catch (err) {
+        console.error("Error fetching motores:", err);
+        setError(err.message);
+      }
+    };
+    fetchMotores();
   }, []);
 
   if (error) {
     return <p>Error al cargar los motores: {error}</p>;
   }
 
+  if (!error && motores.length === 0) {
+    return <p>No hay motores disponibles para mostrar.</p>;
+  }
+
   return (
     <div>
       <h2>Lista de Motores Vocaloid</h2>
-      <table>
+      <table className="motor-table">
         <thead>
           <tr>
             <th>Nombre del Motor</th>

@@ -17,7 +17,7 @@ const MotorVocaloidSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-});
+}, { collection: 'motores_vocaloid' });
 
 const MotorVocaloid = mongoose.model('motores_vocaloid', MotorVocaloidSchema);
 

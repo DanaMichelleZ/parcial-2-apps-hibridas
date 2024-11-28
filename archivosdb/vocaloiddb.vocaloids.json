@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "670ec569795952060ee414ac"
   },
-  "nombre": "Hatsune Miku",
+  "nombre": "Hatsune Miku MODIFICADA",
   "genero": "Femenino",
   "desarrollador": "Crypton Future Media",
   "idioma": [
@@ -14,7 +14,10 @@
   "versionMotor": "Miku V4X",
   "imagenPerfil": "/images/mikuv4xicon.jpg",
   "imagenCuerpoCompleto": "/images/mikuv4xcompleta.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c5"
+  }
 },
 {
   "_id": {
@@ -32,7 +35,10 @@
   "versionMotor": "Len V2",
   "imagenPerfil": "/images/lenv2icon.jpg",
   "imagenCuerpoCompleto": "/images/lenv2completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c5"
+  }
 },
 {
   "_id": {
@@ -50,7 +56,10 @@
   "versionMotor": "Luka V4X",
   "imagenPerfil": "/images/lukav4xicon.jpg",
   "imagenCuerpoCompleto": "/images/lukav4xcompleta.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  }
 },
 {
   "_id": {
@@ -68,7 +77,10 @@
   "versionMotor": "MEIKO V3",
   "imagenPerfil": "/images/meikov3icon.jpg",
   "imagenCuerpoCompleto": "/images/meikov3completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c4"
+  }
 },
 {
   "_id": {
@@ -86,13 +98,16 @@
   "versionMotor": "KAITO V3",
   "imagenPerfil": "/images/kaitov3icon.jpg",
   "imagenCuerpoCompleto": "/images/kaitov3completo.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c4"
+  }
 },
 {
   "_id": {
     "$oid": "670ec5e5795952060ee414b8"
   },
-  "nombre": "GUMI",
+  "nombre": "PRUEBITA MODIFICADISIMA!",
   "genero": "Femenino",
   "desarrollador": "Internet Co., Ltd.",
   "idioma": [
@@ -104,7 +119,10 @@
   "versionMotor": "GUMI V4",
   "imagenPerfil": "/images/gumiv4icon.jpg",
   "imagenCuerpoCompleto": "/images/gumiv4completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  }
 },
 {
   "_id": {
@@ -122,7 +140,10 @@
   "versionMotor": "Fukase V4",
   "imagenPerfil": "/images/fukasev4icon.jpg",
   "imagenCuerpoCompleto": "/images/fukasev4completo.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c7"
+  }
 },
 {
   "_id": {
@@ -140,7 +161,10 @@
   "versionMotor": "IA V3",
   "imagenPerfil": "/images/iav3icon.jpg",
   "imagenCuerpoCompleto": "/images/iav3completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  }
 },
 {
   "_id": {
@@ -158,7 +182,10 @@
   "versionMotor": "Yukari V4",
   "imagenPerfil": "/images/yukariv4icon.jpg",
   "imagenCuerpoCompleto": "/images/yukariv4completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c7"
+  }
 },
 {
   "_id": {
@@ -176,7 +203,10 @@
   "versionMotor": "VY1 V3",
   "imagenPerfil": "/images/vy1icon.jpg",
   "imagenCuerpoCompleto": "/images/vy1completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  }
 },
 {
   "_id": {
@@ -194,7 +224,10 @@
   "versionMotor": "CUL V3",
   "imagenPerfil": "/images/culv3icon.jpg",
   "imagenCuerpoCompleto": "/images/culv3completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  }
 },
 {
   "_id": {
@@ -212,7 +245,10 @@
   "versionMotor": "Tianyi V5",
   "imagenPerfil": "/images/luov5icon.jpg",
   "imagenCuerpoCompleto": "/images/luov5completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c8"
+  }
 },
 {
   "_id": {
@@ -230,7 +266,10 @@
   "versionMotor": "ZOLA V3",
   "imagenPerfil": "/images/zolav3icon.jpg",
   "imagenCuerpoCompleto": "/images/zolav3completo.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  }
 },
 {
   "_id": {
@@ -248,7 +287,10 @@
   "versionMotor": "Akari V4",
   "imagenPerfil": "/images/kizunav4icon.jpg",
   "imagenCuerpoCompleto": "/images/kizunav4completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c7"
+  }
 },
 {
   "_id": {
@@ -266,7 +308,10 @@
   "versionMotor": "Maika V3",
   "imagenPerfil": "/images/maikav3icon.jpg",
   "imagenCuerpoCompleto": "/images/maikav3completa.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  }
 },
 {
   "_id": {
@@ -284,7 +329,10 @@
   "versionMotor": "Oliver V3",
   "imagenPerfil": "/images/oliverv3icon.jpg",
   "imagenCuerpoCompleto": "/images/oliverv3completo.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  }
 },
 {
   "_id": {
@@ -302,7 +350,10 @@
   "versionMotor": "Miku V2",
   "imagenPerfil": "/images/hatsunemikuicon.jpg",
   "imagenCuerpoCompleto": "/images/hatsunemikucompleta.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c5"
+  }
 },
 {
   "_id": {
@@ -320,7 +371,10 @@
   "versionMotor": "AI V6",
   "imagenPerfil": "/images/gumisynthicon.jpg",
   "imagenCuerpoCompleto": "/images/gumisynthcompleta.jpg",
-  "__v": 0
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c9"
+  }
 },
 {
   "_id": {
@@ -338,5 +392,29 @@
   "versionMotor": "Rin V2",
   "imagenPerfil": "/images/rinv2icon.jpg",
   "imagenCuerpoCompleto": "/images/rinv2completa.jpg",
+  "__v": 0,
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c5"
+  }
+},
+{
+  "_id": {
+    "$oid": "674769f419e8b99a2e754511"
+  },
+  "nombre": "Prueba",
+  "genero": "Femenino",
+  "desarrollador": "Crypton Future Media",
+  "idiomas": [
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2007-08-31T00:00:00.000Z"
+  },
+  "versionMotor": "VOCALOID2",
+  "motorId": {
+    "$oid": "674522608ce48bc362f6e9c4"
+  },
+  "imagenPerfil": "/images/prueba.png",
+  "imagenCuerpoCompleto": "/images/prueba.png",
   "__v": 0
 }]

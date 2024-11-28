@@ -7,6 +7,7 @@ import VocaloidList from "./pages/VocaloidList";
 import VocaloidDetail from "./pages/VocaloidDetail";
 import MotorList from "./pages/MotorList";
 import ProtectedRoute from "./components/ProtectedRoute";
+import './index.css'
 
 function App() {
   return (

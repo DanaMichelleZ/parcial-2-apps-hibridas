@@ -15,15 +15,15 @@ export default function VocaloidDetail() {
   }, [id]);
 
   if (error) {
-    return <p>Error al cargar el Vocaloid: {error}</p>;
+    return <p className="error-text">Error al cargar el Vocaloid: {error}</p>;
   }
 
   if (!vocaloid) {
-    return <p>Cargando detalles del Vocaloid...</p>;
+    return <p className="loading-text">Cargando detalles del Vocaloid...</p>;
   }
 
   return (
-    <div>
+    <div className="vocaloid-detail">
       <h2>Detalles de {vocaloid.nombre}</h2>
       <p>Género: {vocaloid.genero}</p>
       <p>Desarrollador: {vocaloid.desarrollador}</p>
@@ -34,10 +34,13 @@ export default function VocaloidDetail() {
       </p>
       <p>Versión del Motor: {vocaloid.versionMotor}</p>
       <img
+        className="vocaloid-image"
         src={`${import.meta.env.VITE_API_URL}${vocaloid.imagenPerfil}`}
         alt={vocaloid.nombre}
       />
-      <button onClick={() => navigate(-1)}>Volver Atrás</button>
+      <button className="back-button" onClick={() => navigate(-1)}>
+        Volver Atrás
+      </button>
     </div>
   );
 }

@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "674522608ce48bc362f6e9c4"
+  },
+  "nombreMotor": "VOCALOID",
+  "nombreProducto": "VOCALOID",
+  "idiomas": [
+    "Inglés",
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2004-03-03T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "674522608ce48bc362f6e9c5"
+  },
+  "nombreMotor": "VOCALOID2",
+  "nombreProducto": "VOCALOID2",
+  "idiomas": [
+    "Inglés",
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2007-06-29T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "674522608ce48bc362f6e9c6"
+  },
+  "nombreMotor": "VOCALOID3",
+  "nombreProducto": "VOCALOID3 Editor, VOCALOID3 Editor Second Edition",
+  "idiomas": [
+    "Japonés",
+    "Coreano",
+    "Inglés",
+    "Español",
+    "Chino"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2011-10-21T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "674522608ce48bc362f6e9c7"
+  },
+  "nombreMotor": "VOCALOID4",
+  "nombreProducto": "VOCALOID4 Editor, VOCALOID4 Editor for Cubase",
+  "idiomas": [
+    "Japonés",
+    "Coreano",
+    "Inglés",
+    "Chino"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2014-12-17T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "674522608ce48bc362f6e9c8"
+  },
+  "nombreMotor": "VOCALOID5",
+  "nombreProducto": "VOCALOID5 Editor, VOCALOID4.5 Editor for Cubase",
+  "idiomas": [
+    "Inglés",
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2018-07-18T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "674522608ce48bc362f6e9c9"
+  },
+  "nombreMotor": "VOCALOID6",
+  "nombreProducto": "VOCALOID6 EDITOR",
+  "idiomas": [
+    "Inglés",
+    "Japonés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2023-10-13T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "674522608ce48bc362f6e9ca"
+  },
+  "nombreMotor": "Mobile VOCALOID",
+  "nombreProducto": "Mobile VOCALOID Editor",
+  "idiomas": [
+    "Japonés",
+    "Inglés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2015-04-03T00:00:00.000Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6747971bde1f7b338092d966"
+  },
+  "nombreMotor": "Nuevo Motor2",
+  "nombreProducto": "Nuevo Producto",
+  "idiomas": [
+    "Inglés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67479d9e539e6673aecf2ea4"
+  },
+  "nombreMotor": "Nuevo Motor2",
+  "nombreProducto": "Nuevo Producto",
+  "idiomas": [
+    "Inglés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6747b4295874383e4cc3a1dd"
+  },
+  "nombreMotor": "Nuevo Motor2",
+  "nombreProducto": "Nuevo Producto",
+  "idiomas": [
+    "Inglés"
+  ],
+  "fechaLanzamiento": {
+    "$date": "2024-01-01T00:00:00.000Z"
+  },
+  "__v": 0
+}]

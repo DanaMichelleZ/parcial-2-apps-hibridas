@@ -22,22 +22,22 @@ export default function VocaloidList() {
   }
 
   return (
-    <div>
+    <section>
       <h2>Listado de Vocaloids</h2>
       {vocaloids.length === 0 ? (
         <p>Cargando Vocaloids...</p>
       ) : (
-        <ul>
+        <div id="vocaloid-list">
           {vocaloids.map((vocaloid) => (
-            <li key={vocaloid._id}>
-              {vocaloid.nombre}
+            <div key={vocaloid._id} className="vocaloid-item">
+              <h3>{vocaloid.nombre}</h3>
               <button onClick={() => handleViewMore(vocaloid._id)}>
                 Ver más
               </button>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
-    </div>
+    </section>
   );
 }

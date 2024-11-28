@@ -30,14 +30,26 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/vocaloids">
-                Lista de Vocaloids
-              </Link>
-            </li>
             {isAuthenticated && (
               <li className="nav-item">
-                <button className="btn btn-danger nav-link" onClick={handleLogout}>
+                <Link className="nav-link" to="/vocaloids">
+                  Lista de Vocaloids
+                </Link>
+              </li>
+            )}
+            {isAuthenticated && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/motores">
+                  Lista de Motores
+                </Link>
+              </li>
+            )}
+            {isAuthenticated && (
+              <li className="nav-item">
+                <button
+                  className="btn btn-danger nav-link"
+                  onClick={handleLogout}
+                >
                   Cerrar Sesión
                 </button>
               </li>

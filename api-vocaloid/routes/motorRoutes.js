@@ -1,7 +1,9 @@
 const express = require('express');
-const router = express.Router();
-const { obtenerMotores } = require('../controllers/motorController');
+const { crearMotor, obtenerMotores } = require('../controllers/motorController');
 
+const router = express.Router();
+
+router.post('/', crearMotor);
 router.get('/', obtenerMotores);
 
 module.exports = router;

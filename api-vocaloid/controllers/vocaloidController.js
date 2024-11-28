@@ -29,7 +29,7 @@ const crearVocaloid = async (req, res) => {
 };
 
 const obtenerVocaloids = async (req, res) => {
-    const { nombre, sort, page = 1, limit = 10 } = req.query;
+    const { nombre, sort, page = 1, limit} = req.query;
     let filtro = {};
     let orden = {}; 
 
@@ -45,8 +45,12 @@ const obtenerVocaloids = async (req, res) => {
         const vocaloids = await Vocaloid.find(filtro)
             .populate('motorId', 'nombreMotor nombreProducto idiomas fechaLanzamiento')
             .sort(orden)
-            .skip((page - 1) * limit)
-            .limit(Number(limit));
+            .skip((page - 1) * (limit ? parseInt(limit) : 0))
+            .limit(limit ? parseInt(limit) : 0);
+
+            if (!vocaloids || vocaloids.length === 0) {
+                return res.status(404).json({ error: 'No se encontraron Vocaloids.' });
+            }
 
         res.json(vocaloids);
     } catch (error) {
@@ -79,46 +83,32 @@ const eliminarVocaloid = async (req, res) => {
     try {
         const vocaloidEliminado = await Vocaloid.findByIdAndDelete(req.params.id);
         if (!vocaloidEliminado) {
-            return res.status(404).json({ error: 'Vocaloid no encontrado' });
+            return res.status(404).json({ error: 'Vocaloid no encontrado.' });
         }
-        res.json({ mensaje: 'Vocaloid eliminado con éxito' });
+        res.json({ mensaje: 'Vocaloid eliminado con éxito.' });
     } catch (error) {
-        console.error('Error al eliminar el Vocaloid:', error);
-        res.status(500).json({ error: 'Error al eliminar el Vocaloid', detalles: error.message });
+        console.error('Error al eliminar el Vocaloid:', error.message);
+        res.status(500).json({ error: 'Error interno del servidor.' });
     }
 };
 
 const actualizarVocaloid = async (req, res) => {
-    const { id } = req.params;
-    const datosActualizados = req.body;
-
     try {
-        if (datosActualizados.motorId) {
-            const motorExistente = await MotorVocaloid.findById(datosActualizados.motorId);
-            if (!motorExistente) {
-                return res.status(404).json({ error: 'El motorId proporcionado no existe.' });
-            }
-        }
-
-        const vocaloidActualizado = await Vocaloid.findByIdAndUpdate(id, datosActualizados, {
-            new: true,
-            runValidators: true,
-        }).populate({
-            path: 'motorId',
-            select: 'nombreMotor nombreProducto idiomas fechaLanzamiento',
-            strictPopulate: false,
-        });
-
+        const vocaloidActualizado = await Vocaloid.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true, runValidators: true }
+        );
         if (!vocaloidActualizado) {
-            return res.status(404).json({ error: 'Vocaloid no encontrado' });
+            return res.status(404).json({ error: 'Vocaloid no encontrado.' });
         }
-
         res.json(vocaloidActualizado);
     } catch (error) {
-        console.error('Error al actualizar el Vocaloid:', error);
-        res.status(500).json({ error: 'Error al actualizar el Vocaloid' });
+        console.error('Error al actualizar el Vocaloid:', error.message);
+        res.status(500).json({ error: 'Error interno del servidor.' });
     }
 };
+
 
 module.exports = {
     crearVocaloid,

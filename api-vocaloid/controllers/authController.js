@@ -20,7 +20,11 @@ const registrarUsuario = async (req, res) => {
         await usuario.save();
 
         const payload = { usuario: { id: usuario.id } };
-        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
+        const token = jwt.sign(
+            { usuario: { id: usuario.id } },
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
+        );
 
         res.json({ token });
     } catch (error) {

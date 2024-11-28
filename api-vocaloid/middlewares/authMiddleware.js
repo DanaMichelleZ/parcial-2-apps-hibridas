@@ -1,13 +1,9 @@
 const jwt = require('jsonwebtoken');
 
 const verificarToken = (req, res, next) => {
-    let token = req.header('Authorization');
+    const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
-        return res.status(401).json({ mensaje: 'Acceso denegado, se requiere un token.' });
-    }
-
-    if (token.startsWith('Bearer ')) {
-        token = token.slice(7, token.length);
+        return res.status(401).json({ mensaje: 'Acceso denegado. Token requerido.' });
     }
 
     try {
@@ -15,7 +11,7 @@ const verificarToken = (req, res, next) => {
         req.usuario = verificado.usuario;
         next();
     } catch (error) {
-        res.status(400).json({ mensaje: 'Token no válido.' });
+        res.status(401).json({ mensaje: 'Token inválido.' });
     }
 };
 

@@ -1,9 +1,13 @@
 const express = require('express');
-const { crearMotor, obtenerMotores } = require('../controllers/motorController');
+const { crearMotor, obtenerMotores, editarMotor, eliminarMotor } = require('../controllers/motorController');
+const verificarToken = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
-router.post('/', crearMotor);
+// Rutas para los motores
+router.post('/', verificarToken, crearMotor);
 router.get('/', obtenerMotores);
+router.put('/:id', verificarToken, editarMotor);
+router.delete('/:id', verificarToken, eliminarMotor);
 
 module.exports = router;

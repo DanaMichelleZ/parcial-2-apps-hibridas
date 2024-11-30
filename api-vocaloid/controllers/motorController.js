@@ -35,4 +35,50 @@ const obtenerMotores = async (req, res) => {
   }
 };
 
-module.exports = { crearMotor, obtenerMotores };
+const editarMotor = async (req, res) => {
+  const { id } = req.params;
+  const { nombreMotor, nombreProducto, idiomas, fechaLanzamiento } = req.body;
+
+  // Validaciones básicas
+  if (!nombreMotor || !Array.isArray(idiomas) || idiomas.length === 0 || !fechaLanzamiento) {
+    return res.status(400).json({ error: 'Todos los campos son requeridos.' });
+  }
+
+  try {
+    const motorActualizado = await MotorVocaloid.findByIdAndUpdate(
+      id,
+      { nombreMotor, nombreProducto, idiomas, fechaLanzamiento },
+      { new: true, runValidators: true }
+    );
+
+    if (!motorActualizado) {
+      return res.status(404).json({ error: 'Motor no encontrado.' });
+    }
+
+    res.json(motorActualizado);
+  } catch (error) {
+    console.error('Error al actualizar el motor:', error.message);
+    res.status(500).json({ error: 'Error interno del servidor.' });
+  }
+};
+
+const eliminarMotor = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const motorEliminado = await MotorVocaloid.findByIdAndDelete(id);
+
+    if (!motorEliminado) {
+      return res.status(404).json({ error: 'Motor no encontrado.' });
+    }
+
+    res.json({ mensaje: 'Motor eliminado con éxito.' });
+  } catch (error) {
+    console.error('Error al eliminar el motor:', error.message);
+    res.status(500).json({ error: 'Error interno del servidor.' });
+  }
+};
+
+
+
+module.exports = { crearMotor, obtenerMotores, editarMotor, eliminarMotor };

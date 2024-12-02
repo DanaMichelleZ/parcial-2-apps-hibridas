@@ -1,19 +1,32 @@
 const jwt = require('jsonwebtoken');
 
+// Middleware para verificar el token JWT :3
 const verificarToken = (req, res, next) => {
-    //Verificamos si el authorization tiene un token :3
-    const token = req.header('Authorization')?.replace('Bearer ', ''); //Si el token comienza con la palabra clave Bearer la elimina para obtener solo el token JWT
-    if (!token) {
-        return res.status(401).json({ mensaje: 'Acceso denegado. Token requerido.' }); //sino 404
+    const authHeader = req.header('Authorization');
+    if (!authHeader || !authHeader.startsWith('Bearer ')) { // Verifica que el token exista y tenga el formato correctirijillo
+        return res.status(401).json({ mensaje: 'Encabezado de autorización no válido.' });
     }
 
+    const token = authHeader.replace('Bearer ', ''); // Remueve el prefijo Bearer
     try {
-        const verificado = jwt.verify(token, process.env.JWT_SECRET); //verificamos el token con la libreria jsonwebtoken, la clave se decodifica
-        req.usuario = verificado.usuario; // y si es valido se almacena en req.usuario :3
+        const verificado = jwt.verify(token, process.env.JWT_SECRET); // Decodifica el token con la clave secreta
+        req.usuario = verificado.usuario; // Almacena la info del usuario en req.usuario
         next();
     } catch (error) {
-        res.status(401).json({ mensaje: 'Token inválido.' }); //sino 404
+        if (error.name === 'TokenExpiredError') {
+            return res.status(401).json({ mensaje: 'Token expirado.' });
+        } else if (error.name === 'JsonWebTokenError') {
+            return res.status(401).json({ mensaje: 'Token inválido.' });
+        }
+        return res.status(500).json({ mensaje: 'Error interno al verificar el token.' });
     }
 };
 
-module.exports = verificarToken;
+const verificarAdmin = (req, res, next) => {
+    if (req.usuario.role !== 'admin') { // Verificamos si el rol del usuario es admin duuh
+        return res.status(403).json({ mensaje: 'Acceso denegado. Requiere rol de administrador.' });
+    }
+    next();
+};
+
+module.exports = { verificarToken, verificarAdmin };

@@ -10,26 +10,31 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+        });
 
-      if (!response.ok) {
-        throw new Error("Credenciales inválidas.");
-      }
+        if (!response.ok) {
+            throw new Error("Credenciales inválidas.");
+        }
 
-      const data = await response.json();
-      localStorage.setItem("token", data.token);
+        const data = await response.json();
 
-      navigate("/");
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("role", data.role);
+
+        console.log("Rol guardado en localStorage:", data.role);
+        navigate("/");
     } catch (error) {
-      setError(error.message);
+        setError(error.message);
     }
-  };
+};
+
+
 
   return (
     <div className="container mt-5">

@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authRoutes);
 
+
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}`);
 });

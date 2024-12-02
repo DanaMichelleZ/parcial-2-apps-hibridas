@@ -6,6 +6,7 @@ const conectarDB = require('./config/db');
 const vocaloidRoutes = require('./routes/vocaloidRoutes');
 const authRoutes = require('./routes/authRoutes');
 const motorRoutes = require('./routes/motorRoutes');
+const idiomasRoutes = require('./routes/idiomasRoutes');
 const path = require('path');
 
 const app = express();
@@ -20,6 +21,8 @@ conectarDB();
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/vocaloids', vocaloidRoutes);
+
+app.use('/idiomas', idiomasRoutes);
 
 app.use('/motores', motorRoutes);
 

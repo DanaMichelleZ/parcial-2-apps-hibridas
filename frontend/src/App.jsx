@@ -7,7 +7,7 @@ import VocaloidList from "./pages/VocaloidList";
 import VocaloidDetail from "./pages/VocaloidDetail";
 import MotorList from "./pages/MotorList";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminPanel from "./pages/admin/AdminPanel";
 import AdminVocaloidList from "./pages/admin/AdminVocaloidList";
 import AdminVocaloidCreate from "./pages/admin/AdminVocaloidCreate";
 import AdminVocaloidEdit from "./pages/admin/AdminVocaloidEdit";
@@ -52,10 +52,10 @@ function App() {
 
           {/* Panel de Administración */}
           <Route
-            path="/admin"
+            path="/admin/panel"
             element={
               <ProtectedRoute adminOnly>
-                <AdminDashboard />
+                <AdminPanel />
               </ProtectedRoute>
             }
           />

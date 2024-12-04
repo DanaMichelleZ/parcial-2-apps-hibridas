@@ -24,20 +24,20 @@ const AdminVocaloidEdit = () => {
         }
         const vocaloidData = await response.json();
         setVocaloid(vocaloidData);
-        setNombre(vocaloidData.nombre);
-        setGenero(vocaloidData.genero);
-        setDesarrollador(vocaloidData.desarrollador);
-        // Verifica que idiomas sea un array y lo asigna correctamente
-        setSelectedIdiomas(vocaloidData.idiomas || []); 
-        setFechaLanzamiento(vocaloidData.fechaLanzamiento.split("T")[0]);
-        setMotorId(vocaloidData.motorId);
+        setNombre(vocaloidData.nombre || "");
+        setGenero(vocaloidData.genero || "Masculino");
+        setDesarrollador(vocaloidData.desarrollador || "");
+        setSelectedIdiomas(vocaloidData.idiomas || []);
+        setFechaLanzamiento(vocaloidData.fechaLanzamiento ? vocaloidData.fechaLanzamiento.split("T")[0] : "");
+        setMotorId(vocaloidData.motorId || "");
       } catch (error) {
         console.error("Error al cargar los datos del Vocaloid:", error);
       }
     };
-
+  
     fetchVocaloid();
   }, [id]);
+  
 
   // Fetch available idiomas
   useEffect(() => {
@@ -188,15 +188,16 @@ const AdminVocaloidEdit = () => {
           </div>
           <div>
             <label htmlFor="motor">Motor Asociado:</label>
-            <select id="motor" name="motor" value={motorId} onChange={(e) => setMotorId(e.target.value)}>
-              <option value="">Seleccionar Motor</option>
-              {motores.length > 0 &&
-                motores.map((motor) => (
-                  <option key={motor._id || motor.id} value={motor._id || motor.id}>
-                    {motor.nombreMotor}
-                  </option>
-                ))}
-            </select>
+            <select id="motor" name="motor" value={motorId || ""} onChange={(e) => setMotorId(e.target.value)}>
+  <option value="">Seleccionar Motor</option>
+  {motores.length > 0 &&
+    motores.map((motor) => (
+      <option key={motor._id || motor.id} value={motor._id || motor.id}>
+        {motor.nombreMotor}
+      </option>
+    ))}
+</select>
+
           </div>
           <button type="submit">Guardar Cambios</button>
         </form>

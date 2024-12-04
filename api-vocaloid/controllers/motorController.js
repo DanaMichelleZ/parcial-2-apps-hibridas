@@ -35,6 +35,23 @@ const obtenerMotores = async (req, res) => {
   }
 };
 
+const obtenerMotorPorId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const motor = await MotorVocaloid.findById(id);
+
+    if (!motor) {
+      return res.status(404).json({ error: 'Motor no encontrado' });
+    }
+
+    res.json(motor);
+  } catch (error) {
+    console.error('Error al obtener el motor:', error.message);
+    res.status(500).json({ error: 'Error interno del servidor.' });
+  }
+};
+
+
 const editarMotor = async (req, res) => {
   const { id } = req.params;
   const { nombreMotor, nombreProducto, idiomas, fechaLanzamiento } = req.body;
@@ -81,4 +98,4 @@ const eliminarMotor = async (req, res) => {
 
 
 
-module.exports = { crearMotor, obtenerMotores, editarMotor, eliminarMotor };
+module.exports = { crearMotor, obtenerMotores, editarMotor, eliminarMotor, obtenerMotorPorId };

@@ -78,7 +78,7 @@ const AdminMotorList = () => {
                 <td>{motor.idiomas.join(", ")}</td>
                 <td>{new Date(motor.fechaLanzamiento).toLocaleDateString()}</td>
                 <td>
-                <button onClick={() => navigate(`/admin/usuarios/edit/${usuario.id || usuario._id}`)}>Editar</button>
+                  <button onClick={() => handleEdit(motor.id || motor._id)}>Editar</button>
                   <button onClick={() => handleDelete(motor.id || motor._id)}>Eliminar</button>
                 </td>
               </tr>

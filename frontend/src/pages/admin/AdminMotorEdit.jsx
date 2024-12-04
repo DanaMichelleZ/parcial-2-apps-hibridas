@@ -6,8 +6,10 @@ const AdminMotorEdit = () => {
   const navigate = useNavigate();
   const [motor, setMotor] = useState(null);
   const [nombreMotor, setNombreMotor] = useState("");
-  const [idiomas, setIdiomas] = useState("");
+  const [idiomas, setIdiomas] = useState([]);
+  const [selectedIdiomas, setSelectedIdiomas] = useState([]);
   const [fechaLanzamiento, setFechaLanzamiento] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const fetchMotor = async () => {
@@ -18,19 +20,54 @@ const AdminMotorEdit = () => {
         }
         const motorData = await response.json();
         setMotor(motorData);
-        setNombreMotor(motorData.nombreMotor);
-        setIdiomas(motorData.idiomas.join(", "));
-        setFechaLanzamiento(motorData.fechaLanzamiento.split("T")[0]);
+        setNombreMotor(motorData.nombreMotor || "");
+        setSelectedIdiomas(motorData.idiomas || []);
+        setFechaLanzamiento(motorData.fechaLanzamiento ? motorData.fechaLanzamiento.split("T")[0] : "");
       } catch (error) {
         console.error("Error al cargar los datos del motor:", error);
+        setErrorMessage("No se pudo cargar los datos del motor.");
       }
     };
 
     fetchMotor();
   }, [id]);
 
+  useEffect(() => {
+    const fetchIdiomas = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/idiomas`);
+        if (!response.ok) {
+          throw new Error("Error al obtener los idiomas");
+        }
+        const idiomasData = await response.json();
+        setIdiomas(idiomasData);
+      } catch (error) {
+        console.error("Error al obtener los idiomas:", error);
+        setErrorMessage("No se pudo cargar los idiomas.");
+      }
+    };
+
+    fetchIdiomas();
+  }, []);
+
+
+  const handleIdiomaChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setSelectedIdiomas((prev) => [...prev, value]);
+    } else {
+      setSelectedIdiomas((prev) => prev.filter((idioma) => idioma !== value));
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validaciones
+    if (!nombreMotor || !selectedIdiomas.length || !fechaLanzamiento) {
+      setErrorMessage("Todos los campos son obligatorios.");
+      return;
+    }
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/motores/${id}`, {
@@ -41,7 +78,7 @@ const AdminMotorEdit = () => {
         },
         body: JSON.stringify({
           nombreMotor,
-          idiomas: idiomas.split(",").map((idioma) => idioma.trim()),
+          idiomas: selectedIdiomas,
           fechaLanzamiento,
         }),
       });
@@ -54,7 +91,7 @@ const AdminMotorEdit = () => {
       navigate("/admin/motores");
     } catch (error) {
       console.error("Error al actualizar el motor:", error);
-      alert("Error al actualizar el motor. Por favor, inténtalo de nuevo.");
+      setErrorMessage("Error al actualizar el motor. Inténtalo de nuevo.");
     }
   };
 
@@ -63,6 +100,8 @@ const AdminMotorEdit = () => {
       <h1>Editar Motor</h1>
       {motor ? (
         <form onSubmit={handleSubmit}>
+          {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>} {/* Mostrar errores */}
+
           <div>
             <label htmlFor="nombreMotor">Nombre del Motor:</label>
             <input
@@ -73,17 +112,27 @@ const AdminMotorEdit = () => {
               onChange={(e) => setNombreMotor(e.target.value)}
             />
           </div>
+
           <div>
-            <label htmlFor="idiomas">Idiomas:</label>
-            <input
-              type="text"
-              id="idiomas"
-              name="idiomas"
-              value={idiomas}
-              onChange={(e) => setIdiomas(e.target.value)}
-              placeholder="Separar por comas"
-            />
+            <label>Idiomas:</label>
+            {idiomas.length > 0 ? (
+              idiomas.map((idioma) => (
+                <div key={idioma}>
+                  <input
+                    type="checkbox"
+                    id={`idioma-${idioma}`}
+                    value={idioma}
+                    checked={selectedIdiomas.includes(idioma)}
+                    onChange={handleIdiomaChange}
+                  />
+                  <label htmlFor={`idioma-${idioma}`}>{idioma}</label>
+                </div>
+              ))
+            ) : (
+              <p>Cargando idiomas...</p>
+            )}
           </div>
+
           <div>
             <label htmlFor="fechaLanzamiento">Fecha de Lanzamiento:</label>
             <input
@@ -94,10 +143,11 @@ const AdminMotorEdit = () => {
               onChange={(e) => setFechaLanzamiento(e.target.value)}
             />
           </div>
+
           <button type="submit">Guardar Cambios</button>
         </form>
       ) : (
-        <p>Cargando datos del motor...</p>
+        <p>{errorMessage || "Cargando datos del motor..."}</p>
       )}
     </div>
   );

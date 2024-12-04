@@ -834,3 +834,107 @@ p.error-text {
     font-size: 0.9rem;
   }
 }
+
+
+/* Estilo general para la página de login */
+.container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+/* Estilo de los campos del formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color-dark);
+}
+
+.form-control {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Estilo del mensaje de error */
+.alert-danger {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Estilo del botón de inicio de sesión */
+button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* Enlace para el registro */
+p {
+  font-size: 1rem;
+  color: var(--text-color-dark);
+}
+
+p a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+p a:hover {
+  color: var(--secondary-color);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+}

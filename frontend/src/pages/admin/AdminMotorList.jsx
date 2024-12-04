@@ -58,7 +58,7 @@ const AdminMotorList = () => {
         <h2>Administración de Motores</h2>
         <button onClick={handleCreate}>Crear Motor</button>
       </div>
-      <h1>Lista de Motores</h1>
+      <h3>Lista de Motores</h3>
       <table>
         <thead>
           <tr>

@@ -55,10 +55,10 @@ const AdminVocaloidList = () => {
   return (
     <div className="admin-page">
       <div className="create-section">
-        <h2>Administración de Vocaloids</h2>
+        <h2>Vocaloids</h2>
         <button onClick={handleCreate}>Crear Vocaloid</button>
       </div>
-      <h1>Lista de Vocaloids</h1>
+      <h2>Lista completa</h2>
       <table>
         <thead>
           <tr>

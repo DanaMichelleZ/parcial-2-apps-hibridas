@@ -32,7 +32,7 @@ export default function MotorList() {
 
   return (
     <div>
-      <h2>Lista de Motores Vocaloid</h2>
+      <h2>Motores Registrados</h2>
       <table className="motor-table">
         <thead>
           <tr>

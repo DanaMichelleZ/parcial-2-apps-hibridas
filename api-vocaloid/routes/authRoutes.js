@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { registrarUsuario, loginUsuario } = require('../controllers/authController');
 const Usuario = require('../models/Usuario');
-const { verificarToken } = require('../middlewares/authMiddleware'); // Importar el middleware de verificación
+const { verificarToken } = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
@@ -88,9 +88,9 @@ router.get('/usuarios/:id', verificarToken, async (req, res) => {
   });
   
   router.delete('/usuarios/:id', verificarToken, async (req, res) => {
-    console.log(`Eliminando usuario con ID: ${id}`);
-
     const { id } = req.params;
+  
+    console.log(`Eliminando usuario con ID: ${id}`);
   
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(400).json({ error: 'ID inválido.' });
@@ -106,8 +106,8 @@ router.get('/usuarios/:id', verificarToken, async (req, res) => {
       console.error('Error al eliminar usuario:', error.message);
       res.status(500).json({ error: 'Error interno del servidor.' });
     }
-    
   });
+  
 
  
 

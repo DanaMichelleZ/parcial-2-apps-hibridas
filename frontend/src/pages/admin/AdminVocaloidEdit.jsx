@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+//Componente
 const AdminVocaloidEdit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -14,10 +15,11 @@ const AdminVocaloidEdit = () => {
   const [motores, setMotores] = useState([]);
   const [motorId, setMotorId] = useState("");
 
-  // Fetch data for the Vocaloid being edited
+  // Obtenemos los datos a editar
   useEffect(() => {
     const fetchVocaloid = async () => {
       try {
+        // peti GET a la API 
         const response = await fetch(`${import.meta.env.VITE_API_URL}/vocaloids/${id}`);
         if (!response.ok) {
           throw new Error("Error al obtener los datos del Vocaloid");
@@ -39,7 +41,7 @@ const AdminVocaloidEdit = () => {
   }, [id]);
   
 
-  // Fetch available idiomas
+  // obtiene la lista de idiomas disponibles de mi PI
   useEffect(() => {
     const fetchIdiomas = async () => {
       try {
@@ -57,7 +59,7 @@ const AdminVocaloidEdit = () => {
     fetchIdiomas();
   }, []);
 
-  // Fetch available motores
+  // Lo mismo con motores
   useEffect(() => {
     const fetchMotores = async () => {
       try {
@@ -75,7 +77,7 @@ const AdminVocaloidEdit = () => {
     fetchMotores();
   }, []);
 
-  // Handle idioma checkbox change
+  // Maneja los cambios en los checkboxes
   const handleIdiomaChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -85,16 +87,16 @@ const AdminVocaloidEdit = () => {
     }
   };
 
-  // Handle form submission
+  // Cuanddo enviamos el formu
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+// verifica si hay un token en el localStorage
     const token = localStorage.getItem("token");
     if (!token) {
       alert("Token no encontrado. Por favor, inicia sesión nuevamente.");
       return;
     }
-
+    //token =  solicitud PUT 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/vocaloids/${id}`, {
         method: "PUT",
@@ -124,6 +126,7 @@ const AdminVocaloidEdit = () => {
     }
   };
 
+  //sI se cargaron los datos muestra el formulario y sino hay un msj que dice cargando
   return (
     <div className="admin-page">
       <h1>Editar Vocaloid</h1>
@@ -186,19 +189,20 @@ const AdminVocaloidEdit = () => {
               onChange={(e) => setFechaLanzamiento(e.target.value)}
             />
           </div>
+
           <div>
             <label htmlFor="motor">Motor Asociado:</label>
-            <select id="motor" name="motor" value={motorId || ""} onChange={(e) => setMotorId(e.target.value)}>
-  <option value="">Seleccionar Motor</option>
-  {motores.length > 0 &&
-    motores.map((motor) => (
-      <option key={motor._id || motor.id} value={motor._id || motor.id}>
-        {motor.nombreMotor}
-      </option>
-    ))}
-</select>
-
+              <select id="motor" name="motor" value={motorId || ""} onChange={(e) => setMotorId(e.target.value)}>
+                <option value="">Seleccionar Motor</option>
+                  {motores.length > 0 &&
+                  motores.map((motor) => (
+                <option key={motor._id || motor.id} value={motor._id || motor.id}>
+                  {motor.nombreMotor}
+                </option>
+                    ))}
+                </select>
           </div>
+
           <button type="submit">Guardar Cambios</button>
         </form>
       ) : (

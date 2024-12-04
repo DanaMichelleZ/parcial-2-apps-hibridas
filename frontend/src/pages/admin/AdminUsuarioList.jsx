@@ -5,15 +5,18 @@ const AdminUsuarioList = () => {
   const [usuarios, setUsuarios] = useState([]);
   const navigate = useNavigate();
 
+  //Obtenemos usuarios xd
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
+        //Soli GET
         const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/usuarios`, {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         });
         if (!response.ok) {
           throw new Error("Error al obtener los usuarios.");
         }
+        //solicitud exitosia = respuesta se convertida en JSON y se guarda en el estado usuarios
         const data = await response.json();
         setUsuarios(data);
       } catch (error) {
@@ -30,6 +33,7 @@ const AdminUsuarioList = () => {
   };
 
   const handleDelete = async (id) => {
+    //usuario confirma = se hace la solicitud DELETE xD
     if (window.confirm("¿Estás seguro de que deseas eliminar este usuario?")) {
       try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/usuarios/${id}`, {
@@ -40,6 +44,8 @@ const AdminUsuarioList = () => {
         if (!response.ok) {
           throw new Error("No se pudo eliminar el usuario.");
         }
+
+        //Dsp de eliminar el usuario de mi API se actualiza el estado de la lista de usuarios para eliminarlo de la interfaz jejejej
         setUsuarios((prev) => prev.filter((usuario) => usuario.id !== id));
         alert("Usuario eliminado correctamente.");
       } catch (error) {

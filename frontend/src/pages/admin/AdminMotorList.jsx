@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AdminMotorList = () => {
+  //setMotores actualiza el estado motores con los datos que saca de mi API
   const [motores, setMotores] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchMotores = async () => {
       try {
+        // soli GET
         const response = await fetch(`${import.meta.env.VITE_API_URL}/motores`);
         if (!response.ok) {
           throw new Error("Error al obtener la lista de motores.");
@@ -22,9 +24,11 @@ const AdminMotorList = () => {
     fetchMotores();
   }, []);
 
+
   const handleDelete = async (id) => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este motor?")) {
       try {
+        //soli DELETE
         const response = await fetch(`${import.meta.env.VITE_API_URL}/motores/${id}`, {
           method: "DELETE",
           headers: {
@@ -36,6 +40,7 @@ const AdminMotorList = () => {
           throw new Error("No se pudo eliminar el motor.");
         }
 
+        //solicitud Exitoxa = actualiza el estado motores eliminando el motor de la lista
         setMotores((prevMotores) => prevMotores.filter((motor) => motor.id !== id));
         alert("Motor eliminado correctamente.");
       } catch (error) {

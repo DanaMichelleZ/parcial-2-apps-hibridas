@@ -8,6 +8,7 @@ export default function VocaloidDetail() {
   const [vocaloid, setVocaloid] = useState(null);
   const [error, setError] = useState("");
 
+  //hook
   useEffect(() => {
     getVocaloidById(id)
       .then(setVocaloid)

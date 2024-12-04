@@ -12,10 +12,11 @@ const AdminVocaloidCreate = () => {
   const [versionMotor, setVersionMotor] = useState("");
   const [message, setMessage] = useState("");
 
-
+//Obtenemos datos de mi API
   useEffect(() => {
     const fetchMotores = async () => {
       try {
+        //solicitud HTTP a mi API
         const response = await fetch(`${import.meta.env.VITE_API_URL}/motores`);
         if (!response.ok) {
           throw new Error("Error al obtener los motores");
@@ -30,6 +31,7 @@ const AdminVocaloidCreate = () => {
     fetchMotores();
   }, []);
 
+  //Obtenemos la lista de idiomas disponibless
   useEffect(() => {
     const fetchIdiomas = async () => {
       try {
@@ -48,6 +50,7 @@ const AdminVocaloidCreate = () => {
   }, []);
 
 
+  //Cuando el usuario selecciona un motor en el form eluseEffect asegura que la version del motor se complete con la info del motor seleccionado uwu
   useEffect(() => {
     if (motorId) {
       const motorSeleccionado = motores.find((motor) => motor._id === motorId);
@@ -55,9 +58,12 @@ const AdminVocaloidCreate = () => {
         setVersionMotor(motorSeleccionado.versionMotor);
       }
     }
-  }, [motorId, motores]);
+  }, [motorId, motores]); //Las dependencias de useEffect 
 
+
+  //Esta funci actualiza el estado selectedIdiomas para reflejar la seleccion actual que se haya elegido xd
   const handleIdiomaChange = (e) => {
+    //obtiene el valor del idioma seleccionado y tmb si el checkbox ta marcado o no
     const { value, checked } = e.target;
     if (checked) {
       setSelectedIdiomas((prev) => [...prev, value]);
@@ -66,6 +72,7 @@ const AdminVocaloidCreate = () => {
     }
   };
 
+  //Esta valida que todos los campos obligatorios sten completos
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
@@ -92,6 +99,7 @@ const AdminVocaloidCreate = () => {
     });
 
     try {
+      // soli POST a la API
       const response = await fetch(`${import.meta.env.VITE_API_URL}/vocaloids`, {
         method: "POST",
         headers: {

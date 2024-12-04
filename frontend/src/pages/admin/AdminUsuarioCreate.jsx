@@ -11,6 +11,7 @@ const AdminUsuarioCreate = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  //e.target obtiene el nombre y el valor del campo que se modifico y atualiza el estado formData con los nuevos valores :3
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -20,12 +21,12 @@ const AdminUsuarioCreate = () => {
     e.preventDefault();
     setError(null); 
     try {
-      // Validación rápida en frontend
+      // Validacion rapida 
       if (!formData.nombre || !formData.email || !formData.password) {
         setError("Todos los campos son obligatorios.");
         return;
       }
-
+      //soli POST nuevo usuario xd
       const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/usuarios`, {
         method: "POST",
         headers: {

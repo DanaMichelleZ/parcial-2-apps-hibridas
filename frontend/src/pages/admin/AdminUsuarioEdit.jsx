@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+//Estado datos form
 const AdminUsuarioEdit = () => {
+  //formData almacena los datos del usuario que se tan editando
+  //setFormData actualiza estado de formData
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -13,7 +16,9 @@ const AdminUsuarioEdit = () => {
   useEffect(() => {
     const fetchUsuario = async () => {
         try {
+          //obtiene los datos del usuario con soli GET :3
           const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/usuarios/${id}`, {
+            //Authorization para que solo accedan los admin con sus tokens autenticados obtenidos del localStorage uwu
             headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
           });
           if (!response.ok) {
@@ -37,26 +42,28 @@ const AdminUsuarioEdit = () => {
       console.log("ID desde useParams:", id);
       console.log("Token en localStorage:", localStorage.getItem("token"));
 
-
-
     fetchUsuario();
   }, [id]);
 
+
+  // Actualiza el estado de formData pa que se reflejen los nuevos valores. Usa el spread operator (...prev) que me mantiene los valores previos y solo cambia el campo que se modifico ([name]: value)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // Se ejecuta cuando el admin envia el form
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //evita que el formulario recargue la pag
     try {
+      //soli PUT a la API pa actualizar los datos del usuario
         const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/usuarios/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), //Se pasa el id del usuario en la URL y los datos actualizados en el cuerpo de la solicitud
       });
       if (!response.ok) {
         throw new Error("Error al editar el usuario.");

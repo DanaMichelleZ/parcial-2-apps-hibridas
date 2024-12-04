@@ -14,6 +14,7 @@ const AdminMotorEdit = () => {
   useEffect(() => {
     const fetchMotor = async () => {
       try {
+        //Soli GET
         const response = await fetch(`${import.meta.env.VITE_API_URL}/motores/${id}`);
         if (!response.ok) {
           throw new Error("Error al obtener los datos del motor");
@@ -32,9 +33,11 @@ const AdminMotorEdit = () => {
     fetchMotor();
   }, [id]);
 
+//Carga idiomas disponiblesxd
   useEffect(() => {
     const fetchIdiomas = async () => {
       try {
+        //Soli GET
         const response = await fetch(`${import.meta.env.VITE_API_URL}/idiomas`);
         if (!response.ok) {
           throw new Error("Error al obtener los idiomas");
@@ -51,6 +54,7 @@ const AdminMotorEdit = () => {
   }, []);
 
 
+  //seleccionado = se agrega a la lista de selectedIdiomas
   const handleIdiomaChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -70,6 +74,7 @@ const AdminMotorEdit = () => {
     }
 
     try {
+      //todos los campos tan completos = se realiza una soli PUT
       const response = await fetch(`${import.meta.env.VITE_API_URL}/motores/${id}`, {
         method: "PUT",
         headers: {

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// se encarga de mostrar la lista de Vocaloids uwu
 const AdminVocaloidList = () => {
+  //se almacenan los datos obtenidos de mi API, setVocaloids func pa actualizar el estado de los vocaloids uwu
   const [vocaloids, setVocaloids] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchVocaloids = async () => {
+    const fetchVocaloids = async () => { //Obtenemos con una func asinctrona realizando solicitud HTTP uwu
       try {
+        // fetch para hacer una peti GET al endpoint /vocaloids :D
         const response = await fetch(`${import.meta.env.VITE_API_URL}/vocaloids`);
         if (!response.ok) {
           throw new Error("Error al obtener la lista de Vocaloids.");
@@ -22,7 +25,9 @@ const AdminVocaloidList = () => {
     fetchVocaloids();
   }, []);
 
+
   const handleDelete = async (id) => {
+  //usuario confirma = se hace una soli DELETE a mi API 
     if (window.confirm("¿Estás seguro de que deseas eliminar este Vocaloid?")) {
       try {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/vocaloids/${id}`, {
@@ -35,7 +40,7 @@ const AdminVocaloidList = () => {
         if (!response.ok) {
           throw new Error("No se pudo eliminar el Vocaloid.");
         }
-
+        // elimina el vocaloid con el id que se eligio
         setVocaloids((prevVocaloids) => prevVocaloids.filter((vocaloid) => vocaloid.id !== id));
         alert("Vocaloid eliminado correctamente.");
       } catch (error) {
@@ -45,7 +50,7 @@ const AdminVocaloidList = () => {
   };
 
   const handleEdit = (id) => {
-    navigate(`/admin/vocaloids/edit/${id}`);
+    navigate(`/admin/vocaloids/edit/${id}`); // id del vocaloid se pasa como parsmetro en la URL y te permite editar
   };
 
   const handleCreate = () => {

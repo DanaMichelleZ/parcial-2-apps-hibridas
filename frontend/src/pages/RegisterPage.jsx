@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+//Componente declaradijillo :3
 export default function RegisterPage() {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
@@ -9,6 +10,7 @@ export default function RegisterPage() {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
+  //Func que maneja registro uwu
   const handleRegister = async (e) => {
     e.preventDefault();
     setError("");
@@ -16,7 +18,7 @@ export default function RegisterPage() {
 
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/auth/register`, {
-        method: "POST",
+        method: "POST", //metodo POST para enviar los datos del usuario uwu
         headers: {
           "Content-Type": "application/json",
         },

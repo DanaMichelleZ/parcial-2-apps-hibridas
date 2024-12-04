@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; //useState me estiona los estados locales del comp uwu
 import { useNavigate } from "react-router-dom";
 
 const AdminMotorCreate = () => {
@@ -12,6 +12,7 @@ const AdminMotorCreate = () => {
   useEffect(() => {
     const fetchIdiomas = async () => {
       try {
+        //Soli GET
         const response = await fetch(`${import.meta.env.VITE_API_URL}/idiomas`);
         if (!response.ok) {
           throw new Error("Error al obtener los idiomas.");
@@ -25,7 +26,8 @@ const AdminMotorCreate = () => {
 
     fetchIdiomas();
   }, []);
-
+  
+  // handleIdiomaChange se ejecuta cuando un idioma es seleccionado o deseleccionado en el form
   const handleIdiomaChange = (e) => {
     const { value, checked } = e.target;
     if (checked) {
@@ -35,16 +37,17 @@ const AdminMotorCreate = () => {
     }
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
 
-    // Validaciones básicas
+    // Primero realiza validaciones basiquitas verificando que los campitos obligatorios esten completados
     if (!nombreMotor || selectedIdiomas.length === 0 || !fechaLanzamiento) {
       setMessage("Por favor, completa todos los campos.");
       return;
     }
-
+    //Verifica que exista un token de autenticacion en el localStorage
     const token = localStorage.getItem("token");
     if (!token) {
       setMessage("Token no encontrado. Por favor, inicia sesión.");
@@ -52,6 +55,7 @@ const AdminMotorCreate = () => {
     }
 
     try {
+      //Soli POST
       const response = await fetch(`${import.meta.env.VITE_API_URL}/motores`, {
         method: "POST",
         headers: {

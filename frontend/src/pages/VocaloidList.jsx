@@ -7,8 +7,9 @@ export default function VocaloidList() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // hook se ejecuta una vez cuando el componente se monto :3
   useEffect(() => {
-    getVocaloids()
+    getVocaloids() // func que hace solicitud HTTP a mi API
       .then(setVocaloids)
       .catch((error) => setError(error.message));
   }, []);

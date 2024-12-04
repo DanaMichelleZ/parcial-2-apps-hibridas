@@ -11,6 +11,12 @@ import AdminPanel from "./pages/admin/AdminPanel";
 import AdminVocaloidList from "./pages/admin/AdminVocaloidList";
 import AdminVocaloidCreate from "./pages/admin/AdminVocaloidCreate";
 import AdminVocaloidEdit from "./pages/admin/AdminVocaloidEdit";
+import AdminMotorList from "./pages/admin/AdminMotorList";
+import AdminMotorCreate from "./pages/admin/AdminMotorCreate";
+import AdminMotorEdit from "./pages/admin/AdminMotorEdit";
+import AdminUsuarioList from "./pages/admin/AdminUsuarioList";
+import AdminUsuarioCreate from "./pages/admin/AdminUsuarioCreate";
+import AdminUsuarioEdit from "./pages/admin/AdminUsuarioEdit";
 import "./index.css";
 
 function App() {
@@ -80,6 +86,54 @@ function App() {
             element={
               <ProtectedRoute adminOnly>
                 <AdminVocaloidEdit />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/motores"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminMotorList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/motores/create"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminMotorCreate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/motores/edit/:id"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminMotorEdit />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/usuarios"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminUsuarioList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/usuarios/create"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminUsuarioCreate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/usuarios/edit/:id"
+            element={
+              <ProtectedRoute adminOnly>
+                <AdminUsuarioEdit />
               </ProtectedRoute>
             }
           />

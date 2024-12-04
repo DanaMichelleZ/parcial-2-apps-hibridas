@@ -195,9 +195,8 @@ const AdminVocaloidCreate = () => {
           <label htmlFor="motor">Motor Asociado:</label>
           <select
             id="motor"
-            value={motorId}
-            onChange={(e) => setMotorId(e.target.value)}
-          >
+            value={motorId || ""}
+            onChange={(e) => setMotorId(e.target.value || "")}>
             <option value="">Selecciona un motor</option>
             {motores.length > 0 ? (
               motores.map((motor) => (

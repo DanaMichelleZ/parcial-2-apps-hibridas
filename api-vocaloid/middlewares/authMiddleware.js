@@ -10,7 +10,7 @@ const verificarToken = (req, res, next) => {
     const token = authHeader.replace('Bearer ', ''); // Remueve el prefijo Bearer
     try {
         const verificado = jwt.verify(token, process.env.JWT_SECRET); // Decodifica el token con la clave secreta
-        req.usuario = verificado.usuario; // Almacena la info del usuario en req.usuario
+        req.usuario = verificado.usuario; // Almacena la info del usuariio en req.usuario
         next();
     } catch (error) {
         if (error.name === 'TokenExpiredError') {
@@ -23,7 +23,7 @@ const verificarToken = (req, res, next) => {
 };
 
 const verificarAdmin = (req, res, next) => {
-    if (req.usuario.role !== 'admin') { // Verificamos si el rol del usuario es admin duuh
+    if (req.usuario.role !== 'admin') { // Verificamo si el rol del usuario es admin duuh
         return res.status(403).json({ mensaje: 'Acceso denegado. Requiere rol de administrador.' });
     }
     next();

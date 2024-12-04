@@ -4,7 +4,7 @@ const MotorVocaloid = require('../models/MotorVocaloid');
 const crearVocaloid = async (req, res) => {
     const { nombre, genero, desarrollador, idiomas, fechaLanzamiento, versionMotor, motorId, imagenPerfil, imagenCuerpoCompleto } = req.body;
 
-    // Validaciones para asegurar que los campos que se requieren estan presentes y validos, tambien verifica que el motor asociado (motorID) existe en la base xd
+    // Validaciones pa asegurar que los campos que se requieren si o si estan presentes y son validos, tambien verificamos que el motor asociado (motorID) existe en la base xd
     if (!nombre || nombre.trim() === "") return res.status(400).json({ error: 'El nombre es requerido.' });
 
     if (!['Masculino', 'Femenino', 'Desconocido'].includes(genero)) return res.status(400).json({ error: 'El género debe ser válido.' });
@@ -18,8 +18,9 @@ const crearVocaloid = async (req, res) => {
     if (!motorId) return res.status(400).json({ error: 'El motorId es requerido.' });
 
     try {
+        // valida que el motorId que se recibe exista en la base
         const motorExistente = await MotorVocaloid.findById(motorId);
-        if (!motorExistente) return res.status(404).json({ error: 'El motorId no existe.' });
+        if (!motorExistente) return res.status(404).json({ error: 'El motorId no existe.' }); //Sino hay tabla
 
         //Aca ya me lo termina de crear y guardar uwu
         const nuevoVocaloid = new Vocaloid({
@@ -34,6 +35,7 @@ const crearVocaloid = async (req, res) => {
     }
 };
 
+// lista de Vocaloids con  filtros y paginación
 const obtenerVocaloids = async (req, res) => {
     const { nombre, sort, page = 1, limit} = req.query;
     let filtro = {};
@@ -49,7 +51,7 @@ const obtenerVocaloids = async (req, res) => {
 
     try {
         const vocaloids = await Vocaloid.find(filtro) //Con esto consultamos en la base y si no encuentra entonces error :3
-            .populate('motorId', 'nombreMotor nombreProducto idiomas fechaLanzamiento')
+            .populate('motorId', 'nombreMotor nombreProducto idiomas fechaLanzamiento') // metodo populate para incluir los datos del motor asociado uwu
             .sort(orden)
             .skip((page - 1) * (limit ? parseInt(limit) : 0))
             .limit(limit ? parseInt(limit) : 0);
@@ -106,6 +108,7 @@ const actualizarVocaloid = async (req, res) => { //Actualiza por ID... si no enc
         const vocaloidActualizado = await Vocaloid.findByIdAndUpdate(
             req.params.id,
             req.body,
+            // me asegura que devuelva el doc actualizado y que los datos sean validados antes de ser actualizados
             { new: true, runValidators: true }
         );
 

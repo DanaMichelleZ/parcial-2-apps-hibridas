@@ -6,11 +6,12 @@ const registrarUsuario = async (req, res) => {
     const { nombre, email, password } = req.body;
 
     try {
-        // Validamos los campos
+        // Validamos los campos ademas de que son obligatorios >:3
         if (!nombre || !email || !password) {
             return res.status(400).json({ error: "Todos los campos son obligatorios." });
         }
-
+        
+        // Verificamos si el formato del correo es valido con una expresionowo regular
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             return res.status(400).json({ error: "El formato del email es inválido." });
@@ -24,21 +25,19 @@ const registrarUsuario = async (req, res) => {
 
         // Crea un nuevo usuario
         usuario = new Usuario({ nombre, email, password });
-
-        // Encripta la contraseña
+        // Encriptamos la contraseña shhhh uwu
         const salt = await bcrypt.genSalt(10);
         usuario.password = await bcrypt.hash(password, salt);
-
         // Guardamos el usuario en la base de datos uwu
         await usuario.save();
 
-        // Token JWT :c
+        // Crea un payload con el id y el rol del usuario
         const payload = {
             usuario: { id: usuario.id, rol: usuario.rol },
         };
-
-        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" });
-
+        // Se genera el token JWT
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "1h" }); // Hacemos que expire en 1 hora
+        //el token se envaa en una respuesta JSON
         res.json({ token, rol: usuario.rol, id: usuario.id });
     } catch (error) {
         console.error("Error en el registro:", error);
@@ -46,6 +45,7 @@ const registrarUsuario = async (req, res) => {
     }
 };
 
+//Aca  recibimos una solicitud HTTP POST uwu
 const loginUsuario = async (req, res) => {
     const { email, password } = req.body;
 
@@ -54,7 +54,7 @@ const loginUsuario = async (req, res) => {
         if (!email || !password) {
             return res.status(400).json({ error: "Email y contraseña son obligatorios." });
         }
-
+        //Validamos campos
         const usuario = await Usuario.findOne({ email });
         if (!usuario) {
             return res.status(400).json({ error: "Usuario no encontrado." });
@@ -66,7 +66,7 @@ const loginUsuario = async (req, res) => {
             return res.status(400).json({ error: "Contraseña incorrecta." });
         }
 
-        // Token JWT
+        // Contraseña correcta = se genera nuevo token JWT
         const payload = {
             usuario: { id: usuario.id, role: usuario.role },
         };

@@ -1,6 +1,9 @@
+// Mi api.js contiene func que se ejecutan en el frontend para hacer solicitudes HTTP a mi API :3
+
 const API_URL = import.meta.env.VITE_API_URL;
 console.log("API_URL:", API_URL);
 
+//func asincrona, realiza solicitud GET a mmi API pa obtener todos los vocaloids desde el endpoint /vocaloids
 export async function getVocaloids() {
   const response = await fetch(`${API_URL}/vocaloids`);
   if (!response.ok) {

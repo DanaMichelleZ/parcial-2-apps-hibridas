@@ -1,19 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AdminMotorCreate = () => {
   const [nombreMotor, setNombreMotor] = useState("");
-  const [idiomas, setIdiomas] = useState("");
+  const [idiomas, setIdiomas] = useState([]);
+  const [selectedIdiomas, setSelectedIdiomas] = useState([]);
   const [fechaLanzamiento, setFechaLanzamiento] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchIdiomas = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/idiomas`);
+        if (!response.ok) {
+          throw new Error("Error al obtener los idiomas.");
+        }
+        const idiomasData = await response.json();
+        setIdiomas(idiomasData);
+      } catch (error) {
+        console.error("Error al obtener los idiomas:", error);
+      }
+    };
+
+    fetchIdiomas();
+  }, []);
+
+  const handleIdiomaChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setSelectedIdiomas((prev) => [...prev, value]);
+    } else {
+      setSelectedIdiomas((prev) => prev.filter((idioma) => idioma !== value));
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage("");
 
     // Validaciones básicas
-    if (!nombreMotor || !idiomas || !fechaLanzamiento) {
+    if (!nombreMotor || selectedIdiomas.length === 0 || !fechaLanzamiento) {
       setMessage("Por favor, completa todos los campos.");
       return;
     }
@@ -33,7 +60,7 @@ const AdminMotorCreate = () => {
         },
         body: JSON.stringify({
           nombreMotor,
-          idiomas: idiomas.split(",").map((idioma) => idioma.trim()),
+          idiomas: selectedIdiomas,
           fechaLanzamiento,
         }),
       });
@@ -44,7 +71,7 @@ const AdminMotorCreate = () => {
 
       setMessage("Motor creado con éxito.");
       setNombreMotor("");
-      setIdiomas("");
+      setSelectedIdiomas([]);
       setFechaLanzamiento("");
 
       // Redirigir después de crear el motor
@@ -70,15 +97,23 @@ const AdminMotorCreate = () => {
           />
         </div>
         <div>
-          <label htmlFor="idiomas">Idiomas:</label>
-          <input
-            type="text"
-            id="idiomas"
-            name="idiomas"
-            value={idiomas}
-            onChange={(e) => setIdiomas(e.target.value)}
-            placeholder="Separar por comas"
-          />
+          <label>Idiomas:</label>
+          {idiomas.length > 0 ? (
+            idiomas.map((idioma) => (
+              <div key={idioma}>
+                <input
+                  type="checkbox"
+                  id={`idioma-${idioma}`}
+                  value={idioma}
+                  checked={selectedIdiomas.includes(idioma)}
+                  onChange={handleIdiomaChange}
+                />
+                <label htmlFor={`idioma-${idioma}`}>{idioma}</label>
+              </div>
+            ))
+          ) : (
+            <p>Cargando idiomas...</p>
+          )}
         </div>
         <div>
           <label htmlFor="fechaLanzamiento">Fecha de Lanzamiento:</label>

@@ -1,10 +1,11 @@
 const MotorVocaloid = require('../models/MotorVocaloid');
+
 //Registramos en la base de datos :3
 const crearMotor = async (req, res) => {
   const { nombreMotor, nombreProducto, idiomas, fechaLanzamiento } = req.body;
 
   //Validamos los datitos para crear un motor, comprobando que los campitos requeridos si esten presentes
-  if (!nombreMotor || !Array.isArray(idiomas) || idiomas.length === 0 || !fechaLanzamiento) {
+  if (!nombreMotor || nombreMotor.trim() === "" || !Array.isArray(idiomas) || idiomas.length === 0 || !fechaLanzamiento) {
     return res.status(400).json({ error: 'Todos los campos son requeridos.' });
   }
 
@@ -62,7 +63,7 @@ const editarMotor = async (req, res) => {
   const { nombreMotor, nombreProducto, idiomas, fechaLanzamiento } = req.body;
 
   // Validaciones basicas :3
-  if (!nombreMotor || !Array.isArray(idiomas) || idiomas.length === 0 || !fechaLanzamiento) {
+  if (!nombreMotor || nombreMotor.trim() === "" || !Array.isArray(idiomas) || idiomas.length === 0 || !fechaLanzamiento) {
     return res.status(400).json({ error: 'Todos los campos son requeridos.' });
   }
 
@@ -86,7 +87,6 @@ const editarMotor = async (req, res) => {
   }
 };
 
-
 //Manejamo solicitud DELETE
 const eliminarMotor = async (req, res) => {
   const { id } = req.params; //De aca obtenemo el ID del motor que se necesite eliminar
@@ -103,7 +103,5 @@ const eliminarMotor = async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor.' });
   }
 };
-
-
 
 module.exports = { crearMotor, obtenerMotores, editarMotor, eliminarMotor, obtenerMotorPorId };

@@ -10,11 +10,21 @@ const registrarUsuario = async (req, res) => {
         if (!nombre || !email || !password) {
             return res.status(400).json({ error: "Todos los campos son obligatorios." });
         }
+
+        // validamos que el nombre no este vacio ni lleno de espacios
+        if (nombre.trim().length < 3) {
+            return res.status(400).json({ error: "El nombre debe tener al menos 3 caracteres." });
+        }
         
         // Verificamos si el formato del correo es valido con una expresionowo regular
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             return res.status(400).json({ error: "El formato del email es inválido." });
+        }
+
+         // validamos que la contraseña tenga minimo 6 caracteres
+         if (password.length < 6) {
+            return res.status(400).json({ error: "La contraseña debe tener al menos 6 caracteres." });
         }
 
         // Verificamos si ya existe el usuario

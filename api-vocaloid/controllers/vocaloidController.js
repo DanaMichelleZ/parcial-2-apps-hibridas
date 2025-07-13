@@ -105,6 +105,25 @@ const eliminarVocaloid = async (req, res) => {
 
 const actualizarVocaloid = async (req, res) => { //Actualiza por ID... si no encuentra entonces 404
     try {
+        const { nombre, genero, desarrollador, idiomas, fechaLanzamiento, motorId } = req.body;
+
+        // Validaciones basicas como en crearVocaloid uwu
+        if (!nombre || nombre.trim() === "") return res.status(400).json({ error: 'El nombre es requerido.' });
+
+        if (!['Masculino', 'Femenino', 'Desconocido'].includes(genero)) return res.status(400).json({ error: 'El género debe ser válido.' });
+
+        if (!desarrollador || desarrollador.trim() === "") return res.status(400).json({ error: 'El desarrollador es requerido.' });
+
+        if (!Array.isArray(idiomas) || idiomas.length === 0) return res.status(400).json({ error: 'El idioma es requerido.' });
+
+        if (!fechaLanzamiento || isNaN(Date.parse(fechaLanzamiento))) return res.status(400).json({ error: 'La fecha debe ser válida.' });
+
+        if (!motorId) return res.status(400).json({ error: 'El motorId es requerido.' });
+
+        // Verificamos si el motor existe en la base de datos uwu
+        const motorExistente = await MotorVocaloid.findById(motorId);
+        if (!motorExistente) return res.status(404).json({ error: 'El motorId no existe.' });
+
         const vocaloidActualizado = await Vocaloid.findByIdAndUpdate(
             req.params.id,
             req.body,
@@ -121,7 +140,6 @@ const actualizarVocaloid = async (req, res) => { //Actualiza por ID... si no enc
         res.status(500).json({ error: 'Error interno del servidor.' });
     }
 };
-
 
 module.exports = {
     crearVocaloid,
